@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>El Espía (que se perdió)</title>
+	<meta name="author" content="Luis Castro Martín">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="favicon.ico">
+	<script defer src="https://cdn.jsdelivr.net/npm/chance@1.0.18/chance.min.js"></script>
+	<script defer src="main.js"></script>
+	<style>
+		input[type=number] {
+			max-width: 2em;
+		}
+	</style>
+</head>
+<body>
+	<h3>El Espía (que se perdió)</h3>
+	<form autocomplete="off" autocorrect="off" oninput="clearCurrentLocation()" onsubmit="revealLocation(this)">
+		<label for="seed">Semilla:</label>
+		<input id="seed" type="text" required>
+		<button type="button" onclick="generateSeed()">Generar semilla</button>
+		<br><br>
+		<label for="player">Jugador:</label>
+		<input id="player" type="number" min="1" required>
+		<label for="numPlayers">de</label>
+		<input id="numPlayers" type="number" min="3" required>
+		<br><br>
+		<button>Revelar localización</button>
+	</form>
+	<br>
+	<p><u>Localización actual</u>: <span id="currentLocation"></span></p>
+	<p><strong>Lista de localizaciones</strong></p>
+	<ul id="locationList"></ul>
+</body>	
+</html>
