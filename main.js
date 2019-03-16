@@ -11,7 +11,7 @@ function clearCurrentLocation() {
 function revealLocation(form) {
 	event.preventDefault();
 	
-	let myChance = new Chance(form.seed.value);
+	let myChance = new Chance(form.seed.value.toLowerCase());
 	let spy = myChance.integer({min: 1, max: parseInt(form.numPlayers.value)});
 	
 	if (spy == form.player.value)
