@@ -23,7 +23,7 @@ function revealLocation(form) {
 let seed = document.getElementById("seed");
 
 function generateSeed() {
-	seed.value = chance.word({syllables: 3});
+	seed.value = chance.word({syllables: 2});
 }
 
 let locationList = document.getElementById("locationList");
