@@ -16,7 +16,7 @@
 </head>
 <body>
 	<h3>El Espía (que se perdió)</h3>
-	<form autocomplete="off" autocorrect="off" oninput="clearCurrentLocation()" onsubmit="revealLocation(this)">
+	<form autocomplete="off" autocorrect="off" oninput="clearCurrentLocation()" onsubmit="revealLocation(event)">
 		<label for="seed">Semilla:</label>
 		<input id="seed" type="text" onfocus="selectInput(this)" required>
 		<button type="button" onclick="generateSeed()">Generar semilla</button>

@@ -8,7 +8,9 @@ function clearCurrentLocation() {
 	currentLocation.innerHTML = '';
 }
 
-function revealLocation(form) {
+let form = document.querySelector('form');
+
+function revealLocation(event) {
 	event.preventDefault();
 	
 	let myChance = new Chance(form.seed.value.toLowerCase());
@@ -24,8 +26,8 @@ let seed = document.getElementById("seed");
 
 function generateSeed() {
 	let myChance = seed.value && new Chance(seed.value.toLowerCase()) || chance;
-	
 	seed.value = myChance.word({syllables: 2});
+	form.oninput();
 }
 
 function selectInput(input) {
