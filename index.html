@@ -18,13 +18,13 @@
 	<h3>El Espía (que se perdió)</h3>
 	<form autocomplete="off" autocorrect="off" oninput="clearCurrentLocation()" onsubmit="revealLocation(this)">
 		<label for="seed">Semilla:</label>
-		<input id="seed" type="text" onfocus="select(this)" required>
+		<input id="seed" type="text" onfocus="selectInput(this)" required>
 		<button type="button" onclick="generateSeed()">Generar semilla</button>
 		<br><br>
 		<label for="player">Jugador:</label>
-		<input id="player" type="number" min="1" onfocus="select(this)" required>
+		<input id="player" type="number" min="1" onfocus="selectInput(this)" required>
 		<label for="numPlayers">de</label>
-		<input id="numPlayers" type="number" min="3" onfocus="select(this)" required>
+		<input id="numPlayers" type="number" min="3" onfocus="selectInput(this)" required>
 		<br><br>
 		<button>Revelar localización</button>
 	</form>

@@ -26,7 +26,7 @@ function generateSeed() {
 	seed.value = chance.word({syllables: 2});
 }
 
-function select(input) {
+function selectInput(input) {
 	setTimeout(function() {input.setSelectionRange(0, input.value.length)}, 0);
 }
 
