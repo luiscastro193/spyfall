@@ -23,7 +23,9 @@ function revealLocation(form) {
 let seed = document.getElementById("seed");
 
 function generateSeed() {
-	seed.value = chance.word({syllables: 2});
+	let myChance = seed.value && new Chance(seed.value.toLowerCase()) || chance;
+	
+	seed.value = myChance.word({syllables: 2});
 }
 
 function selectInput(input) {
