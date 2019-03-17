@@ -31,7 +31,14 @@ function generateSeed() {
 }
 
 function selectInput(input) {
-	setTimeout(function() {input.setSelectionRange(0, input.value.length)}, 0);
+	setTimeout(function() {
+		try {
+			input.setSelectionRange(0, input.value.length);
+		}
+		catch {
+			input.select();
+		}
+	}, 0);
 }
 
 let locationList = document.getElementById("locationList");
