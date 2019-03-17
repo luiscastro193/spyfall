@@ -26,6 +26,10 @@ function generateSeed() {
 	seed.value = chance.word({syllables: 2});
 }
 
+function select(input) {
+	setTimeout(function() {input.setSelectionRange(0, input.value.length)}, 0);
+}
+
 let locationList = document.getElementById("locationList");
 
 for (let location of chance.shuffle(locations)) {
