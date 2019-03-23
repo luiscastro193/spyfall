@@ -35,7 +35,7 @@ function selectInput(input) {
 		try {
 			input.setSelectionRange(0, input.value.length);
 		}
-		catch {
+		catch(e) {
 			input.select();
 		}
 	}, 0);
