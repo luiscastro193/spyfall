@@ -35,3 +35,7 @@ input[type=number] {
 	border-radius: 10px;
 	text-align: center;
 }
+
+#locationList {
+	margin-bottom: 1em;
+}
