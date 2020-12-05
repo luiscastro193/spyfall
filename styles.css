@@ -13,7 +13,7 @@ input[type=number] {
 }
 
 .smart-list > * {
-	margin: 0 14px 14px 0;
+	margin: 0 15px 15px 0;
 }
 
 .smart-list-computed {
@@ -21,7 +21,7 @@ input[type=number] {
 	grid-template-columns: repeat(auto-fit, 1px);
 	justify-items: start;
 	align-items: start;
-	grid-row-gap: 14px;
+	grid-row-gap: 15px;
 	grid-auto-flow: dense;
 }
 
