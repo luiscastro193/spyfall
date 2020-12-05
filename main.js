@@ -56,12 +56,14 @@ function setSpan(element, margin) {
 }
 
 function computeSmartList(list, margin) {
-	setTimeout(function() {
-		for (let item of list.children)
-			setSpan(item, margin);
-		
-		list.classList.replace('smart-list', 'smart-list-computed');
-	}, 1000);
+	requestAnimationFrame(function() {
+		requestAnimationFrame(function() {
+			for (let item of list.children)
+				setSpan(item, margin);
+			
+			list.classList.replace('smart-list', 'smart-list-computed');
+		});
+	});
 }
 
 computeSmartList(locationList, 12);
