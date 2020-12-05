@@ -66,4 +66,4 @@ function computeSmartList(list, margin) {
 	});
 }
 
-computeSmartList(locationList, 12);
+computeSmartList(locationList, 14);
