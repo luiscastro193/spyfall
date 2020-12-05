@@ -1,0 +1,37 @@
+* {
+	font-family: 'Lexend Deca', sans-serif;
+}
+
+input[type=number] {
+	max-width: 2em;
+}
+
+.smart-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.smart-list > * {
+	margin: 0 12px 12px 0;
+}
+
+.smart-list-computed {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 1px);
+	justify-items: start;
+	align-items: start;
+	grid-row-gap: 12px;
+	grid-auto-flow: dense;
+}
+
+.smart-list, .smart-list-computed {
+	max-width: 999px;
+}
+
+.smart-list > *, .smart-list-computed > * {
+	border: 1px solid black;
+	padding: 10px;
+	border-radius: 10px;
+	text-align: center;
+}

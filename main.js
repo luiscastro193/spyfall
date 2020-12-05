@@ -43,8 +43,25 @@ function selectInput(input) {
 
 let locationList = document.getElementById("locationList");
 
-for (let location of chance.shuffle(locations)) {
-	let li = document.createElement("li");
+function locationToElement(location) {
+	let li = document.createElement('span');
 	li.textContent = location;
-	locationList.appendChild(li);
+	return li;
 }
+
+locationList.append(...chance.shuffle(locations).map(locationToElement));
+
+function setSpan(element, margin) {
+	element.style.cssText += `grid-column: span ${element.offsetWidth + margin}`;
+}
+
+function computeSmartList(list, margin) {
+	setTimeout(function() {
+		for (let item of list.children)
+			setSpan(item, margin);
+		
+		list.classList.replace('smart-list', 'smart-list-computed');
+	}, 10);
+}
+
+computeSmartList(locationList, 12);

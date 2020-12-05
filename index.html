@@ -6,19 +6,11 @@
 	<meta name="author" content="Luis Castro Martín">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="favicon.ico">
-	<link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
-	<script defer src="https://cdn.jsdelivr.net/npm/chance@1.0.18/chance.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="https://cdn.jsdelivr.net/npm/chance@1.1.7/chance.min.js"></script>
 	<script defer src="main.js"></script>
 	<script async src="stats.js"></script>
-	<style>
-		* {
-			font-family: 'Lexend Deca', sans-serif;
-		}
-		
-		input[type=number] {
-			max-width: 2em;
-		}
-	</style>
 </head>
 <body>
 	<h3>El Espía (que se perdió)</h3>
@@ -37,6 +29,6 @@
 	<br>
 	<p><u>Localización actual</u>: <span id="currentLocation"></span></p>
 	<p><strong>Lista de localizaciones</strong></p>
-	<ul id="locationList"></ul>
+	<section id="locationList" class="smart-list"></section>
 </body>	
 </html>
