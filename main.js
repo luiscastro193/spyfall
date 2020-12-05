@@ -61,7 +61,7 @@ function computeSmartList(list, margin) {
 			setSpan(item, margin);
 		
 		list.classList.replace('smart-list', 'smart-list-computed');
-	}, 10);
+	}, 100);
 }
 
 computeSmartList(locationList, 12);
