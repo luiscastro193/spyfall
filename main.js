@@ -66,4 +66,7 @@ function computeSmartList(list, margin) {
 	});
 }
 
-computeSmartList(locationList, 15);
+if (document.readyState == 'complete')
+	computeSmartList(locationList, 15);
+else
+	window.addEventListener('load', () => computeSmartList(locationList, 15));
