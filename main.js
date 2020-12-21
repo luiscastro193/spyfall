@@ -56,14 +56,16 @@ function setSpan(element, margin) {
 }
 
 function computeSmartList(list, margin) {
-	requestAnimationFrame(function() {
+	setTimeout(function() {
 		requestAnimationFrame(function() {
-			for (let item of list.children)
-				setSpan(item, margin);
-			
-			list.classList.replace('smart-list', 'smart-list-computed');
+			requestAnimationFrame(function() {
+				for (let item of list.children)
+					setSpan(item, margin);
+				
+				list.classList.replace('smart-list', 'smart-list-computed');
+			});
 		});
-	});
+	}, 100);
 }
 
 if (document.readyState == 'complete')
