@@ -56,19 +56,14 @@ function setSpan(element, margin) {
 }
 
 function computeSmartList(list, margin) {
-	setTimeout(function() {
+	requestAnimationFrame(function() {
 		requestAnimationFrame(function() {
-			requestAnimationFrame(function() {
-				for (let item of list.children)
-					setSpan(item, margin);
-				
-				list.classList.replace('smart-list', 'smart-list-computed');
-			});
+			for (let item of list.children)
+				setSpan(item, margin);
+			
+			list.classList.replace('smart-list', 'smart-list-computed');
 		});
-	}, 100);
+	});
 }
 
-if (document.readyState == 'complete')
-	computeSmartList(locationList, 15);
-else
-	window.addEventListener('load', () => computeSmartList(locationList, 15));
+document.fonts.ready.then(() => computeSmartList(locationList, 15));
