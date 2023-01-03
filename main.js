@@ -55,6 +55,9 @@ function setSpan(element, margin) {
 	element.style.cssText += `grid-column: span ${element.offsetWidth + margin}`;
 }
 
+if (!seed.value)
+	seed.value = new Date().toLocaleDateString('es-ES');
+
 function computeSmartList(list, margin) {
 	requestAnimationFrame(function() {
 		requestAnimationFrame(function() {
