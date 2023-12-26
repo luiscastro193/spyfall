@@ -9,20 +9,20 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 	<script defer src="https://cdn.jsdelivr.net/npm/chance@1.1.11/chance.min.js"></script>
-	<script defer src="main.js"></script>
+	<script type="module" src="main.js"></script>
 	<script type="module" async src="https://luiscastro193.github.io/stats.js"></script>
 </head>
 <body>
 	<h3>El Espía (que se perdió)</h3>
-	<form autocomplete="off" autocorrect="off" oninput="clearCurrentLocation()" onsubmit="revealLocation(event)">
+	<form autocomplete="off" autocorrect="off">
 		<label for="seed">Semilla:</label>
-		<input id="seed" type="text" onfocus="selectInput(this)" required>
-		<button type="button" onclick="generateSeed()">Generar semilla</button>
+		<input id="seed" type="text" required>
+		<button type="button">Generar semilla</button>
 		<br><br>
 		<label for="player">Jugador:</label>
-		<input id="player" type="number" min="1" onfocus="selectInput(this)" required>
+		<input id="player" type="number" min="1" required>
 		<label for="numPlayers">de</label>
-		<input id="numPlayers" type="number" min="3" onfocus="selectInput(this)" required>
+		<input id="numPlayers" type="number" min="3" required>
 		<br><br>
 		<button>Revelar localización</button>
 	</form>

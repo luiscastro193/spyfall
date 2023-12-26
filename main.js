@@ -1,14 +1,15 @@
 "use strict";
-let locations = ["Playa", "Banco", "Hotel", "Rodaje de una película", "Teatro", "Sierra Nevada", "Hospital", "Base militar", "Embajada", "Zoológico", "Estación espacial", "Crucero", "Avión", "Circo", "Comisaría de policía", "Supermercado", "Universidad", "Parque de atracciones", "Carnaval", "Discoteca", "Fiesta de empresa", "Casino", "Restaurante", "Colegio", "Spa", "Batalla campal", "Tren de pasajeros", "Barco pirata", "Submarino", "Gasolinera"];
-let spyString = "Eres el espía";
+const locations = ["Playa", "Banco", "Hotel", "Rodaje de una película", "Teatro", "Sierra Nevada", "Hospital", "Base militar", "Embajada", "Zoológico", "Estación espacial", "Crucero", "Avión", "Circo", "Comisaría de policía", "Supermercado", "Universidad", "Parque de atracciones", "Carnaval", "Discoteca", "Fiesta de empresa", "Casino", "Restaurante", "Colegio", "Spa", "Batalla campal", "Tren de pasajeros", "Barco pirata", "Submarino", "Gasolinera"];
+const spyString = "Eres el espía";
 
-let currentLocation = document.getElementById("currentLocation");
+const currentLocation = document.getElementById("currentLocation");
+const form = document.querySelector('form');
+const seed = document.getElementById("seed");
+const locationList = document.getElementById("locationList");
 
 function clearCurrentLocation() {
 	currentLocation.innerHTML = '';
 }
-
-let form = document.querySelector('form');
 
 function revealLocation(event) {
 	event.preventDefault();
@@ -22,13 +23,16 @@ function revealLocation(event) {
 		currentLocation.innerHTML = myChance.pickone(locations);
 }
 
-let seed = document.getElementById("seed");
+form.oninput = clearCurrentLocation;
+form.onsubmit = revealLocation;
 
 function generateSeed() {
 	let myChance = seed.value && new Chance(seed.value.toLowerCase()) || chance;
 	seed.value = myChance.word({syllables: 2});
 	form.oninput();
 }
+
+seed.nextElementSibling.onclick = generateSeed;
 
 function selectInput(input) {
 	setTimeout(function() {
@@ -41,7 +45,8 @@ function selectInput(input) {
 	}, 0);
 }
 
-let locationList = document.getElementById("locationList");
+for (let input of document.querySelectorAll('input'))
+	input.addEventListener("focus", () => selectInput(input));
 
 function locationToElement(location) {
 	let li = document.createElement('span');
@@ -55,8 +60,7 @@ function setSpan(element, margin) {
 	element.style.cssText += `grid-column: span ${element.offsetWidth + margin}`;
 }
 
-if (!seed.value)
-	seed.value = new Date().toLocaleDateString('es-ES');
+seed.value = new Date().toLocaleDateString('es-ES');
 
 function computeSmartList(list, margin) {
 	requestAnimationFrame(function() {
