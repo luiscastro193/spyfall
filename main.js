@@ -56,11 +56,11 @@ function locationToElement(location) {
 
 locationList.append(...chance.shuffle(locations).map(locationToElement));
 
+seed.value = new Date().toLocaleDateString('es-ES');
+
 function setSpan(element, margin) {
 	element.style.cssText += `grid-column: span ${element.offsetWidth + margin}`;
 }
-
-seed.value = new Date().toLocaleDateString('es-ES');
 
 function computeSmartList(list, margin) {
 	requestAnimationFrame(function() {
