@@ -63,8 +63,8 @@ function setSpan(element, margin) {
 }
 
 function computeSmartList(list, margin) {
-	requestAnimationFrame(function() {
-		requestAnimationFrame(function() {
+	requestAnimationFrame(() => {
+		requestAnimationFrame(() => {
 			for (let item of list.children)
 				setSpan(item, margin);
 			
