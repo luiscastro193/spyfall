@@ -34,19 +34,8 @@ function generateSeed() {
 
 seed.nextElementSibling.onclick = generateSeed;
 
-function selectInput(input) {
-	setTimeout(function() {
-		try {
-			input.setSelectionRange(0, input.value.length);
-		}
-		catch(e) {
-			input.select();
-		}
-	}, 0);
-}
-
 for (let input of document.querySelectorAll('input'))
-	input.addEventListener("focus", () => selectInput(input));
+	input.addEventListener("focus", () => input.select());
 
 function locationToElement(location) {
 	let li = document.createElement('span');
