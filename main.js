@@ -15,9 +15,9 @@ function revealLocation(event) {
 	event.preventDefault();
 	
 	let myChance = new Chance(form.seed.value.toLowerCase());
-	let spy = myChance.integer({min: 1, max: parseInt(form.numPlayers.value)});
+	let spy = myChance.integer({min: 1, max: parseInt(form.numPlayers.valueAsNumber)});
 	
-	if (spy == form.player.value)
+	if (spy == form.player.valueAsNumber)
 		currentLocation.innerHTML = spyString;
 	else
 		currentLocation.innerHTML = myChance.pickone(locations);
