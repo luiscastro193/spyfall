@@ -15,7 +15,7 @@ function revealLocation(event) {
 	event.preventDefault();
 	
 	let myChance = new Chance(form.seed.value.toLowerCase());
-	let spy = myChance.integer({min: 1, max: parseInt(form.numPlayers.valueAsNumber)});
+	let spy = myChance.integer({min: 1, max: form.numPlayers.valueAsNumber});
 	
 	if (spy == form.player.valueAsNumber)
 		currentLocation.innerHTML = spyString;
