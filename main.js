@@ -1,4 +1,6 @@
 "use strict";
+import PRNG from 'https://luiscastro193.github.io/PRNG/PRNG.js';
+
 const locations = ["Playa", "Banco", "Hotel", "Rodaje de una película", "Teatro", "Sierra Nevada", "Hospital", "Base militar", "Embajada", "Zoológico", "Estación espacial", "Crucero", "Avión", "Circo", "Comisaría de policía", "Supermercado", "Universidad", "Parque de atracciones", "Carnaval", "Discoteca", "Fiesta de empresa", "Casino", "Restaurante", "Colegio", "Spa", "Batalla campal", "Tren de pasajeros", "Barco pirata", "Submarino", "Gasolinera"];
 const spyString = "Eres el espía";
 
@@ -11,10 +13,10 @@ function clearCurrentLocation() {
 	currentLocation.innerHTML = '';
 }
 
-function revealLocation(event) {
+async function revealLocation(event) {
 	event.preventDefault();
 	
-	let myChance = new Chance(form.seed.value.toLowerCase());
+	let myChance = new Chance(await PRNG(seed.value.toLowerCase()));
 	let spy = myChance.integer({min: 1, max: form.numPlayers.valueAsNumber});
 	
 	if (spy == form.player.valueAsNumber)
@@ -26,8 +28,9 @@ function revealLocation(event) {
 form.oninput = clearCurrentLocation;
 form.onsubmit = revealLocation;
 
-function generateSeed() {
-	let myChance = seed.value && new Chance(seed.value.toLowerCase()) || chance;
+async function generateSeed() {
+	let myChance = seed.value && await PRNG(seed.value.toLowerCase()) || Math.random;
+	myChance = new Chance(myChance);
 	seed.value = myChance.word({syllables: 2});
 	form.oninput();
 }
@@ -43,7 +46,7 @@ function locationToElement(location) {
 	return li;
 }
 
-locationList.append(...chance.shuffle(locations).map(locationToElement));
+locationList.append(...new Chance(Math.random).shuffle(locations).map(locationToElement));
 
 seed.value = new Date().toLocaleDateString('es-ES');
 
