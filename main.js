@@ -8,6 +8,7 @@ const currentLocation = document.getElementById("currentLocation");
 const form = document.querySelector('form');
 const seed = document.getElementById("seed");
 const locationList = document.getElementById("locationList");
+chance = new Chance(Math.random);
 
 function clearCurrentLocation() {
 	currentLocation.innerHTML = '';
@@ -29,8 +30,7 @@ form.oninput = clearCurrentLocation;
 form.onsubmit = revealLocation;
 
 async function generateSeed() {
-	let myChance = seed.value && await PRNG(seed.value.toLowerCase()) || Math.random;
-	myChance = new Chance(myChance);
+	let myChance = seed.value && new Chance(await PRNG(seed.value.toLowerCase())) || chance;
 	seed.value = myChance.word({syllables: 2});
 	form.oninput();
 }
@@ -46,7 +46,7 @@ function locationToElement(location) {
 	return li;
 }
 
-locationList.append(...new Chance(Math.random).shuffle(locations).map(locationToElement));
+locationList.append(...chance.shuffle(locations).map(locationToElement));
 
 seed.value = new Date().toLocaleDateString('es-ES');
 
