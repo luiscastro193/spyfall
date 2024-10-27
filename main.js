@@ -30,7 +30,7 @@ form.oninput = clearCurrentLocation;
 form.onsubmit = revealLocation;
 
 async function generateSeed() {
-	let myChance = seed.value && new Chance(await PRNG(seed.value.toLowerCase())) || chance;
+	let myChance = seed.value ? new Chance(await PRNG(seed.value.toLowerCase())) : chance;
 	seed.value = myChance.word({syllables: 2});
 	form.oninput();
 }
