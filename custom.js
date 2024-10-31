@@ -31,6 +31,8 @@ updateButton.onclick = async () => {
 	}
 	else if (locationsInput.reportValidity())
 		location.hash = await zip(JSON.stringify(locationsInput.value.split(/\s+^\s*/m)));
+	else
+		return;
 	
 	dialog.close();
 }
