@@ -23,18 +23,21 @@ defaultButton.onclick = () => {locationsInput.value = defaultLocations.join('\n'
 
 updateButton.onclick = async () => {
 	locationsInput.value = locationsInput.value.trim();
-	if (locationsInput.value == defaultLocations.join('\n')) {
-		if (location.hash) {
-			history.pushState(null, '', ' ');
-			window.onhashchange();
-		}
-	}
-	else if (locationsInput.reportValidity())
-		location.hash = await zip(JSON.stringify(locationsInput.value.split(/\s+^\s*/m).sort()));
-	else
-		return;
 	
-	dialog.close();
+	if (locationsInput.reportValidity()) {
+		const newLocations = JSON.stringify(locationsInput.value.split(/\s+^\s*/m).sort());
+		
+		if (newLocations != JSON.stringify(locations)) {
+			if (newLocations == JSON.stringify(defaultLocations)) {
+				history.pushState(null, '', ' ');
+				window.onhashchange();
+			}
+			else
+				location.hash = await zip(newLocations);
+		}
+		
+		dialog.close();
+	}
 }
 
 document.getElementById("edit").onclick = () => {
