@@ -11,7 +11,7 @@ export let locations = defaultLocations;
 if (location.hash) {
 	let uncompressed = await unzip(location.hash.slice(1)).catch(console.error);
 	if (uncompressed)
-		locations = JSON.parse(uncompressed);
+		locations = uncompressed.split('\n');
 	else
 		history.replaceState(null, '', ' ');
 }
@@ -25,10 +25,10 @@ updateButton.onclick = async () => {
 	locationsInput.value = locationsInput.value.trim();
 	
 	if (locationsInput.reportValidity()) {
-		const newLocations = JSON.stringify([...new Set(locationsInput.value.split(/\s+^\s*/m))].sort());
+		const newLocations = [...new Set(locationsInput.value.split(/\s+^\s*/m))].sort().join('\n');
 		
-		if (newLocations != JSON.stringify(locations)) {
-			if (newLocations == JSON.stringify(defaultLocations)) {
+		if (newLocations != locations.join('\n')) {
+			if (newLocations == defaultLocations.join('\n')) {
 				history.pushState(null, '', ' ');
 				window.onhashchange();
 			}
