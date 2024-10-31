@@ -25,7 +25,7 @@ updateButton.onclick = async () => {
 	locationsInput.value = locationsInput.value.trim();
 	
 	if (locationsInput.reportValidity()) {
-		const newLocations = JSON.stringify(locationsInput.value.split(/\s+^\s*/m).sort());
+		const newLocations = JSON.stringify([...new Set(locationsInput.value.split(/\s+^\s*/m))].sort());
 		
 		if (newLocations != JSON.stringify(locations)) {
 			if (newLocations == JSON.stringify(defaultLocations)) {
