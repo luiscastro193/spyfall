@@ -50,7 +50,7 @@ locationList.append(...chance.shuffle(locations).map(locationToElement));
 seed.value = new Date().toLocaleDateString('es-ES');
 
 if (location.hash) {
-	seed.value += location.hash;
+	seed.value += locations.join();
 	generateSeed();
 }
 
