@@ -1,9 +1,8 @@
 "use strict";
 import PRNG from 'https://luiscastro193.github.io/PRNG/PRNG.js';
+import {locations} from './custom.js';
 
-const locations = ["Playa", "Banco", "Hotel", "Rodaje de una película", "Teatro", "Sierra Nevada", "Hospital", "Base militar", "Embajada", "Zoológico", "Estación espacial", "Crucero", "Avión", "Circo", "Comisaría de policía", "Supermercado", "Universidad", "Parque de atracciones", "Carnaval", "Discoteca", "Fiesta de empresa", "Casino", "Restaurante", "Colegio", "Spa", "Batalla campal", "Tren de pasajeros", "Barco pirata", "Submarino", "Gasolinera"];
 const spyString = "Eres el espía";
-
 const currentLocation = document.getElementById("currentLocation");
 const form = document.querySelector('form');
 const seed = document.getElementById("seed");
@@ -49,6 +48,11 @@ function locationToElement(location) {
 locationList.append(...chance.shuffle(locations).map(locationToElement));
 
 seed.value = new Date().toLocaleDateString('es-ES');
+
+if (location.hash) {
+	seed.value += location.hash;
+	generateSeed();
+}
 
 function setSpan(element, margin) {
 	element.style.cssText += `grid-column: span ${element.offsetWidth + margin}`;

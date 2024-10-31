@@ -39,3 +39,9 @@ input[type=number] {
 #locationList {
 	margin-bottom: 1em;
 }
+
+textarea {
+	field-sizing: content;
+	min-width: 100%;
+	box-sizing: border-box;
+}
