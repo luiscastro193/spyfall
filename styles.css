@@ -45,3 +45,9 @@ textarea {
 	min-width: 100%;
 	box-sizing: border-box;
 }
+
+.buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5em;
+}
