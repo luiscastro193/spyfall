@@ -9,9 +9,9 @@ const [updateButton, cancelButton, cleanButton, defaultButton] = dialog.querySel
 export let locations = defaultLocations;
 
 if (location.hash) {
-	let uncompressed = await unzip(location.hash.slice(1)).catch(console.error);
-	if (uncompressed)
-		locations = uncompressed.split('\n');
+	let decompressed = await unzip(location.hash.slice(1)).catch(console.error);
+	if (decompressed)
+		locations = decompressed.split('\n');
 	else
 		history.replaceState(null, '', ' ');
 }
