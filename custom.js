@@ -55,6 +55,6 @@ document.getElementById("share").onclick = () => {
 	}
 };
 
-document.getElementById("qr").onclick = async () => {
-	window.open("https://luiscastro193.github.io/qr-generator/#" + await zip(location.href));
+document.getElementById("qr").onclick = () => {
+	window.open("https://luiscastro193.github.io/qr-generator/#" + encodeURIComponent(location.href));
 };
