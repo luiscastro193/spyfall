@@ -54,3 +54,7 @@ document.getElementById("share").onclick = () => {
 			.catch(() => alert("Copia el enlace para compartir la lista de localizaciones"));
 	}
 };
+
+document.getElementById("qr").onclick = async () => {
+	window.open("https://luiscastro193.github.io/qr-generator/#" + await zip(location.href));
+};
