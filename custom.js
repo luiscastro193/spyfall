@@ -28,10 +28,8 @@ updateButton.onclick = async () => {
 		const newLocations = [...new Set(locationsInput.value.split(/\s+^\s*/m))].sort().join('\n');
 		
 		if (newLocations != locations.join('\n')) {
-			if (newLocations == defaultLocations.join('\n')) {
-				history.pushState(null, '', ' ');
-				window.onhashchange();
-			}
+			if (newLocations == defaultLocations.join('\n'))
+				location.href = ' ';
 			else
 				location.hash = await zip(newLocations);
 		}
