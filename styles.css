@@ -2,6 +2,10 @@
 	font-family: InterVariable, sans-serif;
 }
 
+input[type=text] {
+	max-width: 10em;
+}
+
 input[type=number] {
 	max-width: 2.5em;
 }
