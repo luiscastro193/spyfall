@@ -59,15 +59,23 @@ function setSpan(element, margin) {
 	element.style.cssText += `grid-column: span ${element.offsetWidth + margin}`;
 }
 
+let lastId = 0;
+
 function computeSmartList(list, margin) {
+	const id = lastId = (lastId + 1) % Number.MAX_SAFE_INTEGER;
 	requestAnimationFrame(() => {
 		requestAnimationFrame(() => {
-			for (let item of list.children)
-				setSpan(item, margin);
-			
-			list.classList.replace('smart-list', 'smart-list-computed');
+			if (id == lastId) {
+				if (list.classList.contains('smart-list-computed'))
+					list.classList.replace('smart-list-computed', 'smart-list');
+				
+				for (let item of list.children)
+					setSpan(item, margin);
+				
+				list.classList.replace('smart-list', 'smart-list-computed');
+			}
 		});
 	});
 }
 
-document.fonts.ready.then(() => computeSmartList(locationList, 15));
+document.fonts.ready.then(() => new ResizeObserver(() => computeSmartList(locationList, 15)).observe(locationList));

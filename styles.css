@@ -29,10 +29,6 @@ input[type=number] {
 	grid-auto-flow: dense;
 }
 
-.smart-list, .smart-list-computed {
-	max-width: 999px;
-}
-
 .smart-list > *, .smart-list-computed > * {
 	border: 1px solid black;
 	padding: 10px;
