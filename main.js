@@ -1,6 +1,6 @@
 "use strict";
 import PRNG from 'https://luiscastro193.github.io/PRNG/PRNG.js';
-import 'https://cdn.jsdelivr.net/npm/chance@1.1.12/chance.min.js';
+import 'https://cdn.jsdelivr.net/npm/chance@1.1.13/chance.min.js';
 import {locations} from './custom.js';
 
 const spyString = "Eres el espía";
