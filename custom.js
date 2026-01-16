@@ -1,7 +1,7 @@
 "use strict";
 import {zip, unzip} from "https://luiscastro193.github.io/zip-string/zip-string.js";
+import defaultLocations from "./locations.json" with {type: "json"};
 
-const defaultLocations = ["Avión", "Banco", "Barco pirata", "Base militar", "Batalla campal", "Carnaval", "Casino", "Circo", "Colegio", "Comisaría de policía", "Crucero", "Discoteca", "Embajada", "Estación espacial", "Fiesta de empresa", "Gasolinera", "Hospital", "Hotel", "Parque de atracciones", "Playa", "Restaurante", "Rodaje de una película", "Sierra Nevada", "Spa", "Submarino", "Supermercado", "Teatro", "Tren de pasajeros", "Universidad", "Zoológico"];
 const dialog = document.querySelector("dialog");
 const locationsInput = document.querySelector("textarea");
 const [updateButton, cancelButton, cleanButton, defaultButton] = dialog.querySelectorAll("button");
