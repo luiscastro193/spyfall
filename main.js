@@ -62,7 +62,7 @@ function setSpan(element, margin) {
 let lastId = 0;
 
 function computeSmartList(list, margin) {
-	const id = lastId = (lastId + 1) % Number.MAX_SAFE_INTEGER;
+	const id = lastId++;
 	requestAnimationFrame(() => {
 		requestAnimationFrame(() => {
 			if (id == lastId) {
